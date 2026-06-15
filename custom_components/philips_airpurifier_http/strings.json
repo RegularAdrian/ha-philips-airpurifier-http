@@ -1,0 +1,26 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Philips Air Purifier",
+        "description": "Connect directly to a Philips purifier using the encrypted HTTP protocol.",
+        "data": {
+          "host": "Host or IP address",
+          "name": "Name",
+          "timeout": "Timeout in seconds",
+          "polling_interval": "Polling interval in seconds",
+          "sleep_speed": "Enable sleep speed",
+          "allergy_mode": "Enable allergy mode",
+          "light_control": "Create light entity"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to the purifier over HTTP.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This purifier is already configured."
+    }
+  }
+}
