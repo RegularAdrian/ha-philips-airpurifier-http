@@ -1,4 +1,6 @@
 {
-    "name": "Philips AirPurifier (with CoAP)",
-    "render_readme": "true"
+  "name": "Philips Air Purifier HTTP",
+  "content_in_root": false,
+  "render_readme": true,
+  "domains": ["fan", "sensor", "light"]
 }
