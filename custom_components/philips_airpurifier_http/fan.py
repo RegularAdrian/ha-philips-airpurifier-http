@@ -26,6 +26,16 @@ from .coordinator import PhilipsAirDataCoordinator
 from .entity import PhilipsAirEntity
 
 
+def _supported_fan_features() -> FanEntityFeature:
+    """Return fan features while staying compatible across HA versions."""
+    features = FanEntityFeature.PRESET_MODE
+    if hasattr(FanEntityFeature, "TURN_ON"):
+        features |= FanEntityFeature.TURN_ON
+    if hasattr(FanEntityFeature, "TURN_OFF"):
+        features |= FanEntityFeature.TURN_OFF
+    return features
+
+
 async def async_setup_entry(
     hass: HomeAssistant,
     entry: ConfigEntry,
@@ -40,7 +50,7 @@ class PhilipsAirFan(PhilipsAirEntity, FanEntity):
     """Philips Air Purifier fan entity."""
 
     _attr_name = None
-    _attr_supported_features = FanEntityFeature.PRESET_MODE
+    _attr_supported_features = _supported_fan_features()
 
     def __init__(self, coordinator: PhilipsAirDataCoordinator, entry: ConfigEntry) -> None:
         super().__init__(coordinator)
